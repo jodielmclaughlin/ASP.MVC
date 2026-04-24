@@ -12,6 +12,8 @@ namespace ASP.MVC
             builder.Services.AddControllers();
             builder.Services.AddScoped<AuthorService>();
             builder.Services.AddScoped<AuthorsModel>();
+            builder.Services.AddScoped<BooksService>();
+            builder.Services.AddScoped<BooksModel>();
 
             var app = builder.Build();
 
