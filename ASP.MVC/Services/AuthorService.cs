@@ -23,5 +23,11 @@ namespace ASP.MVC.Services
 
             return _authors.FetchAuthorByID(id);
         }
+
+        public Author AddNewAuthor(Author author)
+        {
+            return _authors.AddAuthor(author);
+
+        }
     }
 }

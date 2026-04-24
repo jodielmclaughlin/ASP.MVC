@@ -29,6 +29,14 @@ namespace ASP.MVC.Controllers
             return Ok(authors);
         }
 
+        [HttpPost]
+        public IActionResult AddNewAuthor(Author author)
+        {
+            var newAuthor = _authorService.AddNewAuthor(author);
+
+            return Ok(newAuthor);
+        }
+
 
     }
 }

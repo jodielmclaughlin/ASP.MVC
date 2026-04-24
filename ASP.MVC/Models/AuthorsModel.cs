@@ -21,6 +21,18 @@ namespace ASP.MVC.Models
             return authors.FirstOrDefault(r => r.Id == id);
 
         }
+
+        public Author AddAuthor(Author author)
+        {
+            var authors = FetchAuthors();
+            author.Id = authors.Count == 0 ? 1 : authors.Max(a => a.Id) + 1;
+            authors.Add(author);
+
+            var newJson = JsonSerializer.Serialize(authors);
+            File.WriteAllText(".\\Resources\\Authors.json", newJson);
+
+            return author;
+        }
     }
 
 }
