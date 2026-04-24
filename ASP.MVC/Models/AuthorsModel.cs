@@ -33,6 +33,20 @@ namespace ASP.MVC.Models
 
             return author;
         }
+
+        public Author DeleteAuthor(int id)
+        {
+            var authors = FetchAuthors();
+
+            var author = authors.FirstOrDefault(r => r.Id == id);
+
+            authors.Remove(author);
+
+            var newJson = JsonSerializer.Serialize(authors);
+            File.WriteAllText(".\\Resources\\Authors.json", newJson);
+
+            return author;
+        }
     }
 
 }

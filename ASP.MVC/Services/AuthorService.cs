@@ -29,5 +29,10 @@ namespace ASP.MVC.Services
             return _authors.AddAuthor(author);
 
         }
+
+        public Author DeleteAuthorByID(int id)
+        {
+            return _authors.DeleteAuthor(id);
+        }
     }
 }

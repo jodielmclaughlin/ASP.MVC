@@ -37,6 +37,13 @@ namespace ASP.MVC.Controllers
             return Ok(newAuthor);
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult DeleteAuthor(int id)
+        {
+            var deleteAuthor = _authorService.DeleteAuthorByID(id);
+
+            return Ok(deleteAuthor);
+        }
 
     }
 }
