@@ -1,3 +1,5 @@
+using ASP.MVC.Models;
+using ASP.MVC.Services;
 using Microsoft.AspNetCore.Mvc;
 namespace ASP.MVC
 {
@@ -8,6 +10,8 @@ namespace ASP.MVC
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllers();
+            builder.Services.AddScoped<AuthorService>();
+            builder.Services.AddScoped<AuthorsModel>();
 
             var app = builder.Build();
 
