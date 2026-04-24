@@ -6,10 +6,15 @@ namespace ASP.MVC.Controllers
     [Route("[controller]")] //"/Authors"
     public class AuthorsController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAuthors()
+        private readonly AuthorService _authorService;
+        public AuthorsController(AuthorService authorService)
         {
-            var authors = AuthorService.FetchAuthors();
+            _authorService = authorService;
+        }
+        [HttpGet]
+        public IActionResult FetchAuthors()
+        {
+            var authors = _authorService.GetAllAuthors();
 
             return Ok(authors);
         }
