@@ -2,25 +2,26 @@
 using System.Text.Json;
 namespace ASP.MVC.Services
 {
-    //public interface IAuthorService
-    //{
-    //    List<AuthorsModel> FetchAuthors();
-
-    //}
-    public class AuthorService //: IAuthorService
+    //interface can be used here to create the instance in order to do mock testing
+    public class AuthorService 
     {
         //creating an instance of models 
-        private readonly AuthorsModel _authors; //IAuthorsRepository _repository
-
+        private readonly AuthorsModel _authors; 
 
         public AuthorService(AuthorsModel authors)
         {
             _authors = authors;
         }
 
-        public List<AuthorsModel> GetAllAuthors()
+        public List<Author> GetAllAuthors()
         {
            return _authors.FetchAuthors();
+        }
+
+        public Author GetAuthor(int id)
+        {
+
+            return _authors.FetchAuthorByID(id);
         }
     }
 }
